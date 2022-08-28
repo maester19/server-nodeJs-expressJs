@@ -20,7 +20,7 @@ const teacherSchema = mongoose.Schema({
         type: String,
         ref: 'Faculty'
     },
-    course: {
+    courses: {
         type: [{ type: String }],
         ref: 'Course',
         default: []

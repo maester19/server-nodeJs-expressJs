@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const studentRoutes = require("./routes/student")
 const teacherRoutes = require("./routes/teacher")
+const courseRoutes = require("./routes/course")
+const facultyRoutes = require("./routes/faculty")
 
 mongoose.connect('mongodb://localhost:27017/db_test',
   { useNewUrlParser: true,
@@ -21,5 +23,7 @@ app.use((req, res, next) => {
 
 app.use("/student", studentRoutes)
 app.use("/teacher", teacherRoutes)
+app.use("/course", courseRoutes)
+app.use("/faculty", facultyRoutes)
 
 module.exports = app;

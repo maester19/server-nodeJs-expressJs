@@ -25,7 +25,8 @@ module.exports = {
             matricule: matricule,
             bornDate: bornDate,
             level: level,
-            faculty: faculty
+            faculty: faculty,
+            courses: []
         }
 
         await Student.findOneAndUpdate({ _id: doc._id }, JSON.parse(JSON.stringify(doc)), { upsert:true, new: true })

@@ -4,7 +4,7 @@ const courseSchema = mongoose.Schema({
     _id: {
         type: String,
     },
-    libele: {
+    libelle: {
         type: String,
         required: true
     },

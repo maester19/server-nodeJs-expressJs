@@ -8,7 +8,7 @@ const studentSchema = mongoose.Schema({
   matricule: { type: String, required: true },
   level: { type: Number, required: true },
   faculty: { type: String, ref: 'Faculty' },
-  course: {
+  courses: {
       type: [{ type: String }],
       ref: 'Course',
       default: []
