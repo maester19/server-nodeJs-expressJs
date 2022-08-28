@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const stuffRoutes = require("./routes/stuff")
+const studentRoutes = require("./routes/student")
 
 mongoose.connect('mongodb://localhost:27017/db_test',
   { useNewUrlParser: true,
@@ -18,6 +18,6 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use("/api/stuff", stuffRoutes)
+app.use("/student", studentRoutes)
 
 module.exports = app;
