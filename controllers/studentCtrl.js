@@ -22,6 +22,7 @@ module.exports = {
             _id: objectID,
             name: name,
             surname: surname,
+            matricule: matricule,
             bornDate: bornDate,
             level: level,
             faculty: faculty
