@@ -57,5 +57,10 @@ module.exports = {
         Student.deleteOne({ _id: req.params.id })
         .then(() => res.status(200).json({ message: "Element supprime avec succes" }))
         .catch(error => res.status(400).json({ error }))
+    },
+
+    getStudentCourse: async (req, res, next) =>{
+        let student = await Student.findOne({ _id: req.params.id })
+        return JSON.parse(JSON.stringify(student.courses)) 
     }
 }

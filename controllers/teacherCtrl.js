@@ -52,5 +52,21 @@ module.exports = {
         await Teacher.deleteOne({ _id: req.params.id })
             .then(() => res.status(200).json({ message: "Element supprime avec succes" }))
             .catch(error => res.status(400).json({ error }))
+    },
+
+    getTeacherCourse: async (req, res, next) =>{
+        let teacher = await Teacher.findOne({ _id: req.params.id })
+        return JSON.parse(JSON.stringify(teacher.courses)) 
+    },
+
+    addCourseToTeacher: async (req, res, next) =>{
+        let teacher = await Teacher.findOne({ _id: req.params.id })
+        
+        req.body.courses.forEach(course => {
+            teacher.course.push(course)
+        });
+
+        Teacher.findOneAndUpdate({ _id: req.params.id }, { teacher, _id: req.params.id }, { upsert:true, new:false })
+        .then(() => res.status(200).json({ message: "Cours bien ajouter" }))
     }
 }
