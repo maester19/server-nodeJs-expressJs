@@ -41,13 +41,19 @@ module.exports = {
     },
     
     getAll: async (req, res, next) => {
-        await Post.find({ userId: req.auth.userId })
+        await Post.find()
         .then(posts => res.status(200).json( { posts } ))
         .catch(error => res.status(404).json({ error }));
     },
     
     getOne: async (req, res, next) => {
         await Post.findOne({ _id: req.params.id })
+        .then(post => res.status(200).json({post}))
+        .catch(error => res.status(404).json({ error }));
+    },
+    
+    getByUser: async (req, res, next) => {
+        await Post.findOne({ userId: req.params.id })
         .then(post => res.status(200).json({post}))
         .catch(error => res.status(404).json({ error }));
     },
